@@ -1,7 +1,11 @@
+import PasswordSection from "./components/PasswordSection";
+import RequirementSection from "./components/RequirementSection";
+
 function App() {
   return (
     <div>
-      <h1>hi</h1>
+      <PasswordSection />
+      <RequirementSection />
     </div>
   );
 }
