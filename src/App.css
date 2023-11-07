@@ -1,0 +1,26 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  box-sizing: border-box;
+  background-color: grey; /* Change the color of the gap */
+  height: 100vh;
+}
+
+.left-section {
+  display: grid;
+  place-items: center;
+  grid-column: span 2;
+  background-color: red; /* Change color of the left section */
+}
+
+.right-section {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: antiquewhite; /* Change color of the right section*/
+}
+
+.card {
+  outline: 2px solid darkorchid;
+}

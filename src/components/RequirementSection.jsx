@@ -2,7 +2,10 @@ import Card from "./Card";
 
 function RequirementSection() {
   return (
-    <div>
+    <div className="req-section">
+      <Card />
+      <Card />
+      <Card />
       <Card />
     </div>
   );
