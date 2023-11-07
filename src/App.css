@@ -21,9 +21,8 @@ body {
 }
 
 .right-section {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
+  display: grid;
+  gap: 1rem;
   background-color: antiquewhite; /* Change color of the right section*/
 }
 
