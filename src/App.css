@@ -1,5 +1,7 @@
+/* TODO: Add scroll button on the right section if the section overflows. Use scroll Y*/
+
 body {
-  overflow: hidden;
+  overflow: hidden; /* Control the scroll button */
   margin: 0;
   padding: 0;
 }

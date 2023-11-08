@@ -16,6 +16,9 @@ function App() {
         />
       </div>
       <div className="right-section">
+        <div className="right-section-header">
+          <h1>REQUIREMENTS</h1>
+        </div>
         <RequirementSection />
       </div>
     </div>
