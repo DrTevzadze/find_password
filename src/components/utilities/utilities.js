@@ -206,6 +206,15 @@ const symbolEnd = () => {};
 
 // Level 11 - The password MUST start with a number
 
+const startNumber = (input) => {
+  if (typeof input !== "string") {
+    return false;
+  }
+  return !isNaN(parseInt(input));
+};
+
+console.log(startNumber("123asdf"));
+
 export {
   includeLowerCase,
   includeUpperCase,
@@ -217,4 +226,5 @@ export {
   palindrome,
   fifthAndSeventhNumber,
   symbolEnd,
+  startNumber,
 };

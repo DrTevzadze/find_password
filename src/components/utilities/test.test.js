@@ -10,6 +10,7 @@ import {
   palindrome,
   fifthAndSeventhNumber,
   symbolEnd,
+  startNumber,
 } from "./utilities";
 
 // test("adds 1 + 2 to equal 3", () => {
@@ -128,4 +129,14 @@ test("The 5th and 7th characters must be numbers", () => {
   expect(
     fifthAndSeventhNumber(["1", "2", "3", "4", "5", "6", "7", "8", "9"])
   ).toEqual(false); //
+});
+
+test("Starts with a number", () => {
+  expect(startNumber("123asdf")).toEqual(true);
+  expect(startNumber("asd12")).toEqual(false);
+  expect(startNumber("")).toEqual(false);
+  expect(startNumber(" ")).toEqual(false);
+  expect(startNumber("!@#!12sad")).toEqual(false);
+  expect(startNumber("12!@#!12sad")).toEqual(true);
+  expect(startNumber(1234)).toEqual(false);
 });
