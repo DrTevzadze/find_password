@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import Card from "./Card";
 
-function RequirementSection({ text }) {
+//Add destr "text" in function
+
+function RequirementSection() {
   return (
     <>
       <Card content="Level 1" />
