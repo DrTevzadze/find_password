@@ -85,3 +85,22 @@ test("Sum of numbers has to be 15", () => {
   expect(sumOfNumbers(" awefa!#$241 ")).toEqual(false);
   expect(sumOfNumbers("")).toEqual(false);
 });
+
+test("Combined letters in the password create one of the rainbow color", () => {
+  expect(rainbowColor("red")).toEqual(true);
+  expect(rainbowColor("orange")).toEqual(true);
+  expect(rainbowColor("yellow")).toEqual(true);
+  expect(rainbowColor("green")).toEqual(true);
+  expect(rainbowColor("blue")).toEqual(true);
+  expect(rainbowColor("violet")).toEqual(true);
+  expect(rainbowColor(" violet ")).toEqual(true);
+  expect(rainbowColor("indigo")).toEqual(true);
+  expect(rainbowColor("i4nd3ifgo1234")).toEqual(true);
+  expect(rainbowColor("WnDigO")).toEqual(false);
+  expect(rainbowColor("InDigO")).toEqual(true);
+  expect(rainbowColor(" InDigO  ")).toEqual(true);
+  expect(rainbowColor("RED")).toEqual(true);
+  expect(rainbowColor("ReD")).toEqual(true);
+  expect(rainbowColor("rEd")).toEqual(true);
+  expect(rainbowColor("VioLeT")).toEqual(true);
+});

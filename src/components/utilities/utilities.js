@@ -147,9 +147,31 @@ const sumOfNumbers = (input) => {
 
 const spellLastnameBackwards = () => {};
 
-// Level 7 - Include one of the colors of the rainbow
+// Level 7 - Include letters so that combined letters make one of the rainbow colors
 
-const rainbowColor = () => {};
+const rainbow = [
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "indigo",
+  "violet",
+];
+
+const rainbowColor = (input) => {
+  const lowercasedInput = input.toLowerCase(); // Convert input to lowercase for case-insensitive comparison
+  return rainbow.some((color) => {
+    const lowercasedColor = color.toLowerCase(); // Convert color to lowercase for case-insensitive comparison
+    const colorLetters = lowercasedColor.split("");
+
+    return colorLetters.every((letter) => {
+      const inputCount = lowercasedInput.split(letter).length - 1;
+      const colorCount = colorLetters.join("").split(letter).length - 1;
+      return inputCount >= colorCount;
+    });
+  });
+};
 
 // Level 8 - Last 5 text letters need to be palindrome ("ana" = "ana"; "Ana" != "ana")
 
