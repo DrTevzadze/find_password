@@ -173,9 +173,29 @@ const rainbowColor = (input) => {
   });
 };
 
-// Level 8 - Last 5 text letters need to be palindrome ("ana" = "ana"; "Ana" != "ana")
+// Level 8 - -1 Last 3 text letters need to be palindrome ("ana" = "ana"; "Ana" != "ana")
+//Ensure that your password includes a 3-character word that reads the same backward as forward. This word should be positioned just before the last character in the password.
 
-const palindrome = () => {};
+const palindrome = (input) => {
+  console.log(typeof input);
+  if (input.length < 3 || typeof input !== "string") {
+    return false;
+  }
+
+  const beforeLastSlice = input.slice(-4, -1);
+
+  for (let i = 0; i < beforeLastSlice.length; i++) {
+    if (numbersArray.includes(beforeLastSlice[i])) {
+      return false;
+    }
+  }
+
+  const reverseString = beforeLastSlice.split("").reverse().join("");
+  console.log(`Before palindrome: ${beforeLastSlice}`);
+  console.log(`After palindrome: ${reverseString}`);
+
+  return beforeLastSlice === reverseString;
+};
 
 // Level 9 - The 5th and 7th characters must be numbers.
 
@@ -202,7 +222,12 @@ const fifthAndSeventhNumber = (input) => {
 
 // Level 10 - Place a random special character at the end of the password.
 
-const symbolEnd = () => {};
+const symbolEnd = (input) => {
+  const lastChar = input.length - 1;
+  console.log(input.charAt(lastChar));
+
+  return specialCharacters.includes(input.charAt(lastChar));
+};
 
 // Level 11 - The password MUST start with a number
 
@@ -212,8 +237,6 @@ const startNumber = (input) => {
   }
   return !isNaN(parseInt(input));
 };
-
-console.log(startNumber("123asdf"));
 
 export {
   includeLowerCase,

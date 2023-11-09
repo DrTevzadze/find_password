@@ -140,3 +140,29 @@ test("Starts with a number", () => {
   expect(startNumber("12!@#!12sad")).toEqual(true);
   expect(startNumber(1234)).toEqual(false);
 });
+
+test("Ends with a special character", () => {
+  expect(symbolEnd("1234!")).toEqual(true);
+  expect(symbolEnd("1234!@$!")).toEqual(true);
+  expect(symbolEnd("!")).toEqual(true);
+  expect(symbolEnd("123")).toEqual(false);
+  expect(symbolEnd("!@#123")).toEqual(false);
+  expect(symbolEnd("1W2#3")).toEqual(false);
+  expect(symbolEnd("1W2#3 ")).toEqual(false);
+  expect(symbolEnd("")).toEqual(false);
+  expect(symbolEnd(" ")).toEqual(false);
+});
+
+test("3 letter palindrome word before the last character", () => {
+  expect(palindrome("awdf222qweewe3")).toEqual(true);
+  expect(palindrome("ana")).toEqual(false);
+  expect(palindrome("awdfana3")).toEqual(true);
+  expect(palindrome("1231!@#1 ana$")).toEqual(true);
+  expect(palindrome("")).toEqual(false);
+  expect(palindrome(" ")).toEqual(false);
+  expect(palindrome("ana 3")).toEqual(false);
+  expect(palindrome("awifjiawoe123")).toEqual(false);
+  expect(palindrome("12341")).toEqual(false);
+  expect(palindrome("12221")).toEqual(false);
+  expect(palindrome(12341)).toEqual(false);
+});
