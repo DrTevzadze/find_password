@@ -104,3 +104,28 @@ test("Combined letters in the password create one of the rainbow color", () => {
   expect(rainbowColor("rEd")).toEqual(true);
   expect(rainbowColor("VioLeT")).toEqual(true);
 });
+
+test("The 5th and 7th characters must be numbers", () => {
+  expect(fifthAndSeventhNumber("123456789")).toEqual(true);
+  expect(fifthAndSeventhNumber("12345a7a9")).toEqual(false);
+  expect(fifthAndSeventhNumber("asgeagawgega")).toEqual(false);
+  expect(fifthAndSeventhNumber("asdfa4f5a")).toEqual(true);
+  expect(fifthAndSeventhNumber("")).toEqual(false);
+  expect(fifthAndSeventhNumber("!@$!#5#4#@")).toEqual(true);
+  expect(fifthAndSeventhNumber("asf34")).toEqual(false);
+  expect(fifthAndSeventhNumber("as")).toEqual(false);
+  expect(fifthAndSeventhNumber("123")).toEqual(false);
+  expect(fifthAndSeventhNumber(123456789)).toEqual(false);
+  expect(fifthAndSeventhNumber("abcde6789")).toEqual(true);
+  expect(fifthAndSeventhNumber("12a45a78")).toEqual(false);
+  expect(fifthAndSeventhNumber("123456")).toEqual(false);
+  expect(fifthAndSeventhNumber("a1b2c3d4e5f6g7h8i9")).toEqual(true);
+  expect(fifthAndSeventhNumber("abcd!@#efg")).toEqual(false);
+  expect(fifthAndSeventhNumber("12345 67 89")).toEqual(false);
+  expect(fifthAndSeventhNumber(undefined)).toEqual(false);
+  expect(fifthAndSeventhNumber(null)).toEqual(false);
+  expect(fifthAndSeventhNumber({ key: "value" })).toEqual(false);
+  expect(
+    fifthAndSeventhNumber(["1", "2", "3", "4", "5", "6", "7", "8", "9"])
+  ).toEqual(false); //
+});

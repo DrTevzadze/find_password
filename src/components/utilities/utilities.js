@@ -179,7 +179,26 @@ const palindrome = () => {};
 
 // Level 9 - The 5th and 7th characters must be numbers.
 
-const fifthAndSeventhNumber = () => {};
+const fifthAndSeventhNumber = (input) => {
+  if (!input || input.length < 8 || typeof input !== "string") {
+    return false;
+  }
+
+  const charAt5 = input.charAt(5);
+  const charAt7 = input.charAt(7);
+
+  const numberFive = charAt5 === " " ? NaN : Number(charAt5);
+  const numberSeven = charAt5 === " " ? NaN : Number(charAt7);
+
+  console.log(numberFive);
+  console.log(numberSeven);
+
+  if (!isNaN(numberFive) && !isNaN(numberSeven)) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 // Level 10 - Place a random special character at the end of the password.
 
