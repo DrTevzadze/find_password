@@ -1,6 +1,43 @@
 // Level 1
 
-const includeLowerCase = () => {};
+const letters = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+
+const includeLowerCase = (input) => {
+  for (let i = 0; i < input.length; i++) {
+    console.log(input[i]);
+    if (letters.includes(input[i])) {
+      return true;
+    }
+  }
+  return false;
+};
 
 // Level 2
 
