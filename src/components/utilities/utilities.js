@@ -33,8 +33,8 @@ const includeLowerCase = (input) => {
   if (input === null || input === undefined || input.length === 0) {
     return false;
   }
+
   for (let i = 0; i < input.length; i++) {
-    console.log(input[i]);
     if (letters.includes(input[i])) {
       return true;
     }
@@ -42,11 +42,22 @@ const includeLowerCase = (input) => {
   return false;
 };
 
-console.log(includeLowerCase(null));
-
 // Level 2
 
-const includeUpperCase = () => {};
+const includeUpperCase = (input) => {
+  if (input === null || input === undefined || input.length === 0) {
+    return false;
+  }
+
+  const upperCase = letters.map((letter) => letter.toUpperCase());
+  for (let i = 0; i < input.length; i++) {
+    if (upperCase.includes(input[i])) {
+      return true;
+    }
+  }
+  return false;
+};
+
 // Level 3
 
 const includeSpecialCharacters = () => {};
