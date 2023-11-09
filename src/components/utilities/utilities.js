@@ -28,6 +28,36 @@ const letters = [
   "y",
   "z",
 ];
+const specialCharacters = [
+  "!",
+  "@",
+  "#",
+  "$",
+  "%",
+  "^",
+  "&",
+  "*",
+  "(",
+  ")",
+  "-",
+  "_",
+  "+",
+  "=",
+  "{",
+  "}",
+  "[",
+  "]",
+  "|",
+  ";",
+  ":",
+  "<",
+  ">",
+  ",",
+  ".",
+  "?",
+  "/",
+];
+const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].toString();
 
 const includeLowerCase = (input) => {
   if (input === null || input === undefined || input.length === 0) {
@@ -39,6 +69,7 @@ const includeLowerCase = (input) => {
       return true;
     }
   }
+
   return false;
 };
 
@@ -60,11 +91,35 @@ const includeUpperCase = (input) => {
 
 // Level 3
 
-const includeSpecialCharacters = () => {};
+const includeSpecialCharacters = (input) => {
+  if (input === null || input === undefined || input.length === 0) {
+    return false;
+  }
+
+  for (let i = 0; i < input.length; i++) {
+    if (specialCharacters.includes(input[i])) {
+      return true;
+    }
+  }
+
+  return false;
+};
 
 // Level 4
 
-const includeNumber = () => {};
+const includeNumber = (input) => {
+  if (input === null || input === undefined || input.length === 0) {
+    return false;
+  }
+
+  for (let i = 0; i < input.length; i++) {
+    if (numbersArray.includes(input[i])) {
+      return true;
+    }
+  }
+
+  return false;
+};
 
 // Level 5
 

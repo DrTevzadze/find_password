@@ -37,15 +37,42 @@ test("Uppercase letter is included in the password", () => {
   expect(includeUpperCase("FAS")).toEqual(true); // At least one uppercase
   expect(includeUpperCase(["1", "b", "#", "F"])).toEqual(true); // At least one uppercase
   expect(includeUpperCase(" ASFA ")).toEqual(true); // At least one uppercase
-  expect(includeUpperCase(["A", "S", "D"])).toEqual(true); // At least one lowercase
-  expect(includeUpperCase("asdf")).toEqual(false); // No lowercase
-  expect(includeUpperCase("12341")).toEqual(false); // No lowercase
-  expect(includeUpperCase("1234asdf")).toEqual(false); // No lowercase
-  expect(includeUpperCase(1234)).toEqual(false); // No lowercase
-  expect(includeUpperCase(null)).toEqual(false); // No lowercase
-  expect(includeUpperCase(undefined)).toEqual(false); // No lowercase
-  expect(includeUpperCase("")).toEqual(false); // No lowercase
-  expect(includeUpperCase({ key: "VALUE" })).toEqual(false); // No lowercase
-  expect(includeUpperCase(" awefa!#$241 ")).toEqual(false); // No lowercase
-  expect(includeUpperCase(["a", "d", "f"])).toEqual(false); // No lowercase
+  expect(includeUpperCase(["A", "S", "D"])).toEqual(true); // At least one uppercase
+  expect(includeUpperCase("asdf")).toEqual(false); // No uppercase
+  expect(includeUpperCase("12341")).toEqual(false); // No uppercase
+  expect(includeUpperCase("1234asdf")).toEqual(false); // No uppercase
+  expect(includeUpperCase(1234)).toEqual(false); // No uppercase
+  expect(includeUpperCase(null)).toEqual(false); // No uppercase
+  expect(includeUpperCase(undefined)).toEqual(false); // No uppercase
+  expect(includeUpperCase("")).toEqual(false); // No uppercase
+  expect(includeUpperCase({ key: "VALUE" })).toEqual(false); // No uppercase
+  expect(includeUpperCase(" awefa!#$241 ")).toEqual(false); // No uppercase
+  expect(includeUpperCase(["a", "d", "f"])).toEqual(false); // No uppercase
+});
+
+test("Special character is included in the password", () => {
+  expect(includeSpecialCharacters(" awefa!#$241 ")).toEqual(true);
+  expect(includeSpecialCharacters(["1", "b", "#", "F"])).toEqual(true);
+  expect(includeSpecialCharacters("FAS")).toEqual(false);
+  expect(includeSpecialCharacters(" ASFA ")).toEqual(false);
+  expect(includeSpecialCharacters(["A", "S", "D"])).toEqual(false);
+  expect(includeSpecialCharacters(null)).toEqual(false);
+  expect(includeSpecialCharacters(undefined)).toEqual(false);
+  expect(includeSpecialCharacters({ key: "VALUE" })).toEqual(false);
+  expect(includeSpecialCharacters("")).toEqual(false);
+  expect(includeSpecialCharacters(1234)).toEqual(false);
+});
+
+test("Number is included in the password", () => {
+  expect(includeNumber(" awefa!#$241 ")).toEqual(true);
+  expect(includeNumber(["1", "b", "#", "F"])).toEqual(true);
+  expect(includeNumber("12341")).toEqual(true);
+  expect(includeNumber("FAS")).toEqual(false);
+  expect(includeNumber(" ASFA ")).toEqual(false);
+  expect(includeNumber(["A", "S", "D"])).toEqual(false);
+  expect(includeNumber(null)).toEqual(false);
+  expect(includeNumber(undefined)).toEqual(false);
+  expect(includeNumber({ key: "VALUE" })).toEqual(false);
+  expect(includeNumber("")).toEqual(false);
+  expect(includeNumber(1234)).toEqual(false);
 });
