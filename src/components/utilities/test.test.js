@@ -164,14 +164,17 @@ test("3 letter palindrome word before the last character", () => {
 });
 
 test("Password must include my last name (UPPERCASED)", () => {
-  expect(spellLastnameBackwards("TEVZADZE")).toEqual(true);
-  expect(spellLastnameBackwards("TEVZADZEasf")).toEqual(true);
-  expect(spellLastnameBackwards("awdaTEVZADZE")).toEqual(true);
-  expect(spellLastnameBackwards("awdaTEVZADZE123")).toEqual(true);
-  expect(spellLastnameBackwards("#!@$@TEVZADZE123")).toEqual(true);
-  expect(spellLastnameBackwards(" TEVZADZE ")).toEqual(true);
-  expect(spellLastnameBackwards("T2EVZADZE")).toEqual(false);
-  expect(spellLastnameBackwards("TEVZA#DZE")).toEqual(false);
-  expect(spellLastnameBackwards("tevzadze")).toEqual(false);
-  expect(spellLastnameBackwards("TEvzadZe")).toEqual(false);
+  expect(spellLastnameBackwards("EZDAZVET")).toEqual(true);
+  expect(spellLastnameBackwards("fsaEZDAZVET")).toEqual(true);
+  expect(spellLastnameBackwards("EZDAZVETadwa")).toEqual(true);
+  expect(spellLastnameBackwards("321EZDAZVETadwa")).toEqual(true);
+  expect(spellLastnameBackwards("321EZDAZVET@#$@!")).toEqual(true);
+  expect(spellLastnameBackwards(" EZDAZVET ")).toEqual(true);
+  expect(spellLastnameBackwards("E2ZDAZVETT")).toEqual(false);
+  expect(spellLastnameBackwards("EZD#AZVET")).toEqual(false);
+  expect(spellLastnameBackwards("ezdavzet")).toEqual(false);
+  expect(spellLastnameBackwards("eZdavzET")).toEqual(false);
+  expect(spellLastnameBackwards("EZDAZ VET")).toEqual(false);
+  expect(spellLastnameBackwards("#$%^&*")).toEqual(false);
+  expect(spellLastnameBackwards("")).toEqual(false);
 });

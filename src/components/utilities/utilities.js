@@ -146,7 +146,7 @@ const sumOfNumbers = (input) => {
 // Level 6 - name must be all uppercased
 
 const spellLastnameBackwards = (input) => {
-  if (input.includes("TEVZADZE")) {
+  if (input.includes("EZDAZVET")) {
     return true;
   } else {
     return false;
