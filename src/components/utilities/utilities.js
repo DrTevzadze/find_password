@@ -30,6 +30,9 @@ const letters = [
 ];
 
 const includeLowerCase = (input) => {
+  if (input === null || input === undefined || input.length === 0) {
+    return false;
+  }
   for (let i = 0; i < input.length; i++) {
     console.log(input[i]);
     if (letters.includes(input[i])) {
@@ -38,6 +41,8 @@ const includeLowerCase = (input) => {
   }
   return false;
 };
+
+console.log(includeLowerCase(null));
 
 // Level 2
 
