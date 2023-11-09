@@ -13,10 +13,6 @@ import {
   startNumber,
 } from "./utilities";
 
-// test("adds 1 + 2 to equal 3", () => {
-//   expect(sumNumbers(3)).toEqual(3);
-// });
-
 test("Lowercase letter is included in the password", () => {
   expect(includeLowerCase("asdF")).toEqual(true); // At least one lowercase
   expect(includeLowerCase(["1", "b", "#", "F"])).toEqual(true); // At least one lowercase
@@ -165,4 +161,17 @@ test("3 letter palindrome word before the last character", () => {
   expect(palindrome("12341")).toEqual(false);
   expect(palindrome("12221")).toEqual(false);
   expect(palindrome(12341)).toEqual(false);
+});
+
+test("Password must include my last name (UPPERCASED)", () => {
+  expect(spellLastnameBackwards("TEVZADZE")).toEqual(true);
+  expect(spellLastnameBackwards("TEVZADZEasf")).toEqual(true);
+  expect(spellLastnameBackwards("awdaTEVZADZE")).toEqual(true);
+  expect(spellLastnameBackwards("awdaTEVZADZE123")).toEqual(true);
+  expect(spellLastnameBackwards("#!@$@TEVZADZE123")).toEqual(true);
+  expect(spellLastnameBackwards(" TEVZADZE ")).toEqual(true);
+  expect(spellLastnameBackwards("T2EVZADZE")).toEqual(false);
+  expect(spellLastnameBackwards("TEVZA#DZE")).toEqual(false);
+  expect(spellLastnameBackwards("tevzadze")).toEqual(false);
+  expect(spellLastnameBackwards("TEvzadZe")).toEqual(false);
 });

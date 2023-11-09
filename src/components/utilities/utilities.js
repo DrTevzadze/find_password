@@ -143,9 +143,15 @@ const sumOfNumbers = (input) => {
   return false;
 };
 
-// Level 6
+// Level 6 - name must be all uppercased
 
-const spellLastnameBackwards = () => {};
+const spellLastnameBackwards = (input) => {
+  if (input.includes("TEVZADZE")) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 // Level 7 - Include letters so that combined letters make one of the rainbow colors
 
