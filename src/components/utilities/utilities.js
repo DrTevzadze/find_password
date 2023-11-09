@@ -121,9 +121,27 @@ const includeNumber = (input) => {
   return false;
 };
 
-// Level 5
+// Level 5 - SUM = 15
 
-const sumOfNumbers = () => {};
+const sumOfNumbers = (input) => {
+  if (input === null || input === undefined || input.length === 0) {
+    return false;
+  }
+
+  const numbers = [];
+  for (let i = 0; i < input.length; i++) {
+    if (numbersArray.includes(input[i])) {
+      numbers.push(parseInt(input[i]));
+    }
+  }
+
+  const sum = numbers.reduce((total, accumulated) => total + accumulated, 0);
+
+  if (sum === 15) {
+    return true;
+  }
+  return false;
+};
 
 // Level 6
 
@@ -144,6 +162,8 @@ const fifthAndSeventhNumber = () => {};
 // Level 10 - Place a random special character at the end of the password.
 
 const symbolEnd = () => {};
+
+// Level 11 - The password MUST start with a number
 
 export {
   includeLowerCase,

@@ -76,3 +76,12 @@ test("Number is included in the password", () => {
   expect(includeNumber("")).toEqual(false);
   expect(includeNumber(1234)).toEqual(false);
 });
+
+test("Sum of numbers has to be 15", () => {
+  expect(sumOfNumbers("asdf771")).toEqual(true);
+  expect(sumOfNumbers("96")).toEqual(true);
+  expect(sumOfNumbers({ key: "555" })).toEqual(false);
+  expect(sumOfNumbers(96)).toEqual(false);
+  expect(sumOfNumbers(" awefa!#$241 ")).toEqual(false);
+  expect(sumOfNumbers("")).toEqual(false);
+});
