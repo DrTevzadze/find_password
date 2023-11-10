@@ -48,16 +48,53 @@ function RequirementSection({ text }) {
   const isStartNumber = useValidationEffect(text, startNumber);
 
   const cardData = [
-    { content: "Level 1", isValid: isLowerCaseValid },
-    { content: "Level 2", isValid: isUpperCaseValid },
-    { content: "Level 3", isValid: isSpecialCharacter },
-    { content: "Level 4", isValid: isSumNumbers },
-    { content: "Level 5", isValid: isLastName },
-    { content: "Level 6", isValid: isRainbow },
-    { content: "Level 7", isValid: isPalindrome },
-    { content: "Level 8", isValid: isFifthAndSeventhNumber },
-    { content: "Level 9", isValid: isSymbolEnd },
-    { content: "Level 10", isValid: isStartNumber },
+    {
+      content:
+        "Make your password stronger by adding at least one lowercase letter.",
+      isValid: isLowerCaseValid,
+    },
+    {
+      content:
+        "Level up your security with an uppercase letter in your password.",
+      isValid: isUpperCaseValid,
+    },
+    {
+      content:
+        "Add a layer of complexity with at least one special character in your password.",
+      isValid: isSpecialCharacter,
+    },
+    {
+      content: "Ensure the numbers in your password add up to a lucky 15.",
+      isValid: isSumNumbers,
+    },
+    {
+      content:
+        "Include the author's last name, but keep it clean - no extra characters in the middle.",
+      isValid: isLastName,
+    },
+    {
+      content:
+        "Bring some color to your password with at least one rainbow hue.",
+      isValid: isRainbow,
+    },
+    {
+      content:
+        "Create a unique touch by adding a three-letter word that reads the same backward and forward, just before the last character.",
+      isValid: isPalindrome,
+    },
+    {
+      content:
+        "Ensure the 6th and 8th characters in your password are both numbers.",
+      isValid: isFifthAndSeventhNumber,
+    },
+    {
+      content: "Place a special character at the very end of your password.",
+      isValid: isSymbolEnd,
+    },
+    {
+      content: "Start your password with a number for a numeric boost.",
+      isValid: isStartNumber,
+    },
   ];
 
   return (
