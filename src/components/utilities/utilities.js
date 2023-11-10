@@ -66,11 +66,9 @@ const includeLowerCase = (input) => {
 
   for (let i = 0; i < input.length; i++) {
     if (letters.includes(input[i])) {
-      console.log(true);
       return true;
     }
   }
-  console.log(false);
   return false;
 };
 
@@ -84,11 +82,9 @@ const includeUpperCase = (input) => {
   const upperCase = letters.map((letter) => letter.toUpperCase());
   for (let i = 0; i < input.length; i++) {
     if (upperCase.includes(input[i])) {
-      console.log(true);
       return true;
     }
   }
-  console.log(false);
   return false;
 };
 
@@ -101,22 +97,6 @@ const includeSpecialCharacters = (input) => {
 
   for (let i = 0; i < input.length; i++) {
     if (specialCharacters.includes(input[i])) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
-// Level 4
-
-const includeNumber = (input) => {
-  if (input === null || input === undefined || input.length === 0) {
-    return false;
-  }
-
-  for (let i = 0; i < input.length; i++) {
-    if (numbersArray.includes(input[i])) {
       return true;
     }
   }
@@ -186,7 +166,6 @@ const rainbowColor = (input) => {
 //Ensure that your password includes a 3-character word that reads the same backward as forward. This word should be positioned just before the last character in the password.
 
 const palindrome = (input) => {
-  console.log(typeof input);
   if (input.length < 3 || typeof input !== "string") {
     return false;
   }
@@ -200,8 +179,6 @@ const palindrome = (input) => {
   }
 
   const reverseString = beforeLastSlice.split("").reverse().join("");
-  console.log(`Before palindrome: ${beforeLastSlice}`);
-  console.log(`After palindrome: ${reverseString}`);
 
   return beforeLastSlice === reverseString;
 };
@@ -219,9 +196,6 @@ const fifthAndSeventhNumber = (input) => {
   const numberFive = charAt5 === " " ? NaN : Number(charAt5);
   const numberSeven = charAt5 === " " ? NaN : Number(charAt7);
 
-  console.log(numberFive);
-  console.log(numberSeven);
-
   if (!isNaN(numberFive) && !isNaN(numberSeven)) {
     return true;
   } else {
@@ -233,8 +207,6 @@ const fifthAndSeventhNumber = (input) => {
 
 const symbolEnd = (input) => {
   const lastChar = input.length - 1;
-  console.log(input.charAt(lastChar));
-
   return specialCharacters.includes(input.charAt(lastChar));
 };
 
@@ -251,7 +223,6 @@ export {
   includeLowerCase,
   includeUpperCase,
   includeSpecialCharacters,
-  includeNumber,
   sumOfNumbers,
   spellLastnameBackwards,
   rainbowColor,

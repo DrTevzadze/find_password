@@ -8,7 +8,6 @@ function RequirementSection({ text }) {
   const [isLowerCaseValid, setIsLowerCaseValid] = useState(false);
   const [isUpperCaseValid, setIsUpperCaseValid] = useState(false);
   const [isSpecialCharacter, setIsSpecialCharacter] = useState(false);
-  const [isNumber, setIsNumber] = useState(false);
   const [isSumNumbers, setIsSumNumbers] = useState(false);
   const [isLastName, setIsLastName] = useState(false);
   const [isRainbow, setIsRainbow] = useState(false);
@@ -28,10 +27,6 @@ function RequirementSection({ text }) {
   useEffect(() => {
     const result = utility.includeSpecialCharacters(text);
     setIsSpecialCharacter(result);
-  }, [text]);
-  useEffect(() => {
-    const result = utility.includeNumber(text);
-    setIsNumber(result);
   }, [text]);
   useEffect(() => {
     const result = utility.sumOfNumbers(text);
@@ -65,37 +60,49 @@ function RequirementSection({ text }) {
   return (
     <>
       <div className={`card ${isLowerCaseValid ? "green" : "red"}`}>
-        <Card content="Level 1" text={text} />
+        <Card content="Level 1 - Include Lower Case" text={text} />
       </div>
       <div className={`card ${isUpperCaseValid ? "green" : "red"}`}>
-        <Card content="Level 2" text={text} />
+        <Card content="Level 2 - include upper case" text={text} />
       </div>
       <div className={`card ${isSpecialCharacter ? "green" : "red"}`}>
-        <Card content="Level 3" text={text} />
-      </div>
-      <div className={`card ${isNumber ? "green" : "red"}`}>
-        <Card content="Level 4" text={text} />
+        <Card content="Level 3 - include symbol" text={text} />
       </div>
       <div className={`card ${isSumNumbers ? "green" : "red"}`}>
-        <Card content="Level 5" text={text} />
+        <Card content="Level 5 - sum of numbers have to be 15" text={text} />
       </div>
       <div className={`card ${isLastName ? "green" : "red"}`}>
-        <Card content="Level 6" text={text} />
+        <Card
+          content="Level 6 - my last name uppercased and backwards"
+          text={text}
+        />
       </div>
       <div className={`card ${isRainbow ? "green" : "red"}`}>
-        <Card content="Level 7" text={text} />
+        <Card content="Level 7 - include a rainbow color" text={text} />
       </div>
       <div className={`card ${isPalindrome ? "green" : "red"}`}>
-        <Card content="Level 8" text={text} />
+        <Card
+          content="Level 8- Ensure that your password includes a 3-character word that reads the same backward as forward. This word should be positioned just before the last character in the password"
+          text={text}
+        />
       </div>
       <div className={`card ${isFifthAndSeventhNumber ? "green" : "red"}`}>
-        <Card content="Level 9" text={text} />
+        <Card
+          content="Level 9 - 5th and 7th character must be a number"
+          text={text}
+        />
       </div>
       <div className={`card ${isSymbolEnd ? "green" : "red"}`}>
-        <Card content="Level 10" text={text} />
+        <Card
+          content="Level 10 - password must end with a symbol"
+          text={text}
+        />
       </div>
       <div className={`card ${isStartNumber ? "green" : "red"}`}>
-        <Card content="Level 11" text={text} />
+        <Card
+          content="Level 11 - the password should start with a number"
+          text={text}
+        />
       </div>
     </>
   );

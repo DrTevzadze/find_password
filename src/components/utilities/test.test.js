@@ -3,7 +3,6 @@ import {
   includeLowerCase,
   includeUpperCase,
   includeSpecialCharacters,
-  includeNumber,
   sumOfNumbers,
   spellLastnameBackwards,
   rainbowColor,
@@ -58,20 +57,6 @@ test("Special character is included in the password", () => {
   expect(includeSpecialCharacters({ key: "VALUE" })).toEqual(false);
   expect(includeSpecialCharacters("")).toEqual(false);
   expect(includeSpecialCharacters(1234)).toEqual(false);
-});
-
-test("Number is included in the password", () => {
-  expect(includeNumber(" awefa!#$241 ")).toEqual(true);
-  expect(includeNumber(["1", "b", "#", "F"])).toEqual(true);
-  expect(includeNumber("12341")).toEqual(true);
-  expect(includeNumber("FAS")).toEqual(false);
-  expect(includeNumber(" ASFA ")).toEqual(false);
-  expect(includeNumber(["A", "S", "D"])).toEqual(false);
-  expect(includeNumber(null)).toEqual(false);
-  expect(includeNumber(undefined)).toEqual(false);
-  expect(includeNumber({ key: "VALUE" })).toEqual(false);
-  expect(includeNumber("")).toEqual(false);
-  expect(includeNumber(1234)).toEqual(false);
 });
 
 test("Sum of numbers has to be 15", () => {
