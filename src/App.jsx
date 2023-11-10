@@ -11,7 +11,6 @@ function App() {
       <div className="left-section">
         <PasswordSection
           header="Can you find the password?"
-          text={text}
           change={(e) => setText(e.target.value)}
         />
       </div>

@@ -1,109 +1,72 @@
 /* eslint-disable react/prop-types */
 import Card from "./Card";
 import { useEffect, useState } from "react";
-import * as utility from "./utilities/utilities";
-//Add destr "text" in function
+// Import Requirement Functions
+import {
+  includeLowerCase,
+  includeUpperCase,
+  includeSpecialCharacters,
+  sumOfNumbers,
+  spellLastnameBackwards,
+  rainbowColor,
+  palindrome,
+  fifthAndSeventhNumber,
+  symbolEnd,
+  startNumber,
+} from "./utilities/utilities";
+
+// Helper Function!
+function useValidationEffect(text, validationFunction) {
+  const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    const result = validationFunction(text);
+    setIsValid(result);
+  }, [text, validationFunction]);
+
+  return isValid;
+}
+
+// Function Component!
 
 function RequirementSection({ text }) {
-  const [isLowerCaseValid, setIsLowerCaseValid] = useState(false);
-  const [isUpperCaseValid, setIsUpperCaseValid] = useState(false);
-  const [isSpecialCharacter, setIsSpecialCharacter] = useState(false);
-  const [isSumNumbers, setIsSumNumbers] = useState(false);
-  const [isLastName, setIsLastName] = useState(false);
-  const [isRainbow, setIsRainbow] = useState(false);
-  const [isPalindrome, setIsPalindrome] = useState(false);
-  const [isFifthAndSeventhNumber, setIsFifthAndSeventhNumber] = useState(false);
-  const [isSymbolEnd, setIsSymbolEnd] = useState(false);
-  const [isStartNumber, setIsStartNumber] = useState(false);
+  const isLowerCaseValid = useValidationEffect(text, includeLowerCase);
+  const isUpperCaseValid = useValidationEffect(text, includeUpperCase);
+  const isSpecialCharacter = useValidationEffect(
+    text,
+    includeSpecialCharacters
+  );
+  const isSumNumbers = useValidationEffect(text, sumOfNumbers);
+  const isLastName = useValidationEffect(text, spellLastnameBackwards);
+  const isRainbow = useValidationEffect(text, rainbowColor);
+  const isPalindrome = useValidationEffect(text, palindrome);
+  const isFifthAndSeventhNumber = useValidationEffect(
+    text,
+    fifthAndSeventhNumber
+  );
+  const isSymbolEnd = useValidationEffect(text, symbolEnd);
+  const isStartNumber = useValidationEffect(text, startNumber);
 
-  useEffect(() => {
-    const result = utility.includeLowerCase(text);
-    setIsLowerCaseValid(result);
-  }, [text]);
-  useEffect(() => {
-    const result = utility.includeUpperCase(text);
-    setIsUpperCaseValid(result);
-  }, [text]);
-  useEffect(() => {
-    const result = utility.includeSpecialCharacters(text);
-    setIsSpecialCharacter(result);
-  }, [text]);
-  useEffect(() => {
-    const result = utility.sumOfNumbers(text);
-    setIsSumNumbers(result);
-  }, [text]);
-  useEffect(() => {
-    const result = utility.spellLastnameBackwards(text);
-    setIsLastName(result);
-  }, [text]);
-  useEffect(() => {
-    const result = utility.rainbowColor(text);
-    setIsRainbow(result);
-  }, [text]);
-  useEffect(() => {
-    const result = utility.palindrome(text);
-    setIsPalindrome(result);
-  }, [text]);
-  useEffect(() => {
-    const result = utility.fifthAndSeventhNumber(text);
-    setIsFifthAndSeventhNumber(result);
-  }, [text]);
-  useEffect(() => {
-    const result = utility.symbolEnd(text);
-    setIsSymbolEnd(result);
-  }, [text]);
-  useEffect(() => {
-    const result = utility.startNumber(text);
-    setIsStartNumber(result);
-  }, [text]);
+  const cardData = [
+    { content: "Level 1", isValid: isLowerCaseValid },
+    { content: "Level 2", isValid: isUpperCaseValid },
+    { content: "Level 3", isValid: isSpecialCharacter },
+    { content: "Level 4", isValid: isSumNumbers },
+    { content: "Level 5", isValid: isLastName },
+    { content: "Level 6", isValid: isRainbow },
+    { content: "Level 7", isValid: isPalindrome },
+    { content: "Level 8", isValid: isFifthAndSeventhNumber },
+    { content: "Level 9", isValid: isSymbolEnd },
+    { content: "Level 10", isValid: isStartNumber },
+  ];
 
   return (
     <>
-      <div className={`card ${isLowerCaseValid ? "green" : "red"}`}>
-        <Card content="Level 1 - Include Lower Case" text={text} />
-      </div>
-      <div className={`card ${isUpperCaseValid ? "green" : "red"}`}>
-        <Card content="Level 2 - include upper case" text={text} />
-      </div>
-      <div className={`card ${isSpecialCharacter ? "green" : "red"}`}>
-        <Card content="Level 3 - include symbol" text={text} />
-      </div>
-      <div className={`card ${isSumNumbers ? "green" : "red"}`}>
-        <Card content="Level 5 - sum of numbers have to be 15" text={text} />
-      </div>
-      <div className={`card ${isLastName ? "green" : "red"}`}>
-        <Card
-          content="Level 6 - my last name uppercased and backwards"
-          text={text}
-        />
-      </div>
-      <div className={`card ${isRainbow ? "green" : "red"}`}>
-        <Card content="Level 7 - include a rainbow color" text={text} />
-      </div>
-      <div className={`card ${isPalindrome ? "green" : "red"}`}>
-        <Card
-          content="Level 8- Ensure that your password includes a 3-character word that reads the same backward as forward. This word should be positioned just before the last character in the password"
-          text={text}
-        />
-      </div>
-      <div className={`card ${isFifthAndSeventhNumber ? "green" : "red"}`}>
-        <Card
-          content="Level 9 - 5th and 7th character must be a number"
-          text={text}
-        />
-      </div>
-      <div className={`card ${isSymbolEnd ? "green" : "red"}`}>
-        <Card
-          content="Level 10 - password must end with a symbol"
-          text={text}
-        />
-      </div>
-      <div className={`card ${isStartNumber ? "green" : "red"}`}>
-        <Card
-          content="Level 11 - the password should start with a number"
-          text={text}
-        />
-      </div>
+      {cardData.map(({ content, isValid }, index) => (
+        <div key={index} className={`card ${isValid ? "green" : "red"}`}>
+          <Card content={content} text={text} />
+        </div>
+      ))}
     </>
   );
 }
