@@ -7,12 +7,12 @@ import {
   spellLastnameBackwards,
   rainbowColor,
   palindrome,
-  fifthAndSeventhNumber,
+  sixthAndSeventhNumber,
   symbolEnd,
   startNumber,
 } from "./utilities";
 
-test("Lowercase letter is included in the password", () => {
+test("Level 1 - Lowercase letter is included in the password", () => {
   expect(includeLowerCase("asdF")).toEqual(true); // At least one lowercase
   expect(includeLowerCase(["1", "b", "#", "F"])).toEqual(true); // At least one lowercase
   expect(includeLowerCase(" asdf ")).toEqual(true); // At least one lowercase
@@ -29,7 +29,7 @@ test("Lowercase letter is included in the password", () => {
   expect(includeLowerCase(["F", "A", "D"])).toEqual(false); // No lowercase
 });
 
-test("Uppercase letter is included in the password", () => {
+test("Level 2 - Uppercase letter is included in the password", () => {
   expect(includeUpperCase("FAS")).toEqual(true); // At least one uppercase
   expect(includeUpperCase(["1", "b", "#", "F"])).toEqual(true); // At least one uppercase
   expect(includeUpperCase(" ASFA ")).toEqual(true); // At least one uppercase
@@ -46,7 +46,7 @@ test("Uppercase letter is included in the password", () => {
   expect(includeUpperCase(["a", "d", "f"])).toEqual(false); // No uppercase
 });
 
-test("Special character is included in the password", () => {
+test("Level 3 - Special character is included in the password", () => {
   expect(includeSpecialCharacters(" awefa!#$241 ")).toEqual(true);
   expect(includeSpecialCharacters(["1", "b", "#", "F"])).toEqual(true);
   expect(includeSpecialCharacters("FAS")).toEqual(false);
@@ -59,7 +59,7 @@ test("Special character is included in the password", () => {
   expect(includeSpecialCharacters(1234)).toEqual(false);
 });
 
-test("Sum of numbers has to be 15", () => {
+test("Level 4 - Sum of numbers has to be 15", () => {
   expect(sumOfNumbers("asdf771")).toEqual(true);
   expect(sumOfNumbers("96")).toEqual(true);
   expect(sumOfNumbers({ key: "555" })).toEqual(false);
@@ -68,7 +68,23 @@ test("Sum of numbers has to be 15", () => {
   expect(sumOfNumbers("")).toEqual(false);
 });
 
-test("Combined letters in the password create one of the rainbow color", () => {
+test("Level 5 - Password must include my last name (UPPERCASED)", () => {
+  expect(spellLastnameBackwards("EZDAZVET")).toEqual(true);
+  expect(spellLastnameBackwards("fsaEZDAZVET")).toEqual(true);
+  expect(spellLastnameBackwards("EZDAZVETadwa")).toEqual(true);
+  expect(spellLastnameBackwards("321EZDAZVETadwa")).toEqual(true);
+  expect(spellLastnameBackwards("321EZDAZVET@#$@!")).toEqual(true);
+  expect(spellLastnameBackwards(" EZDAZVET ")).toEqual(true);
+  expect(spellLastnameBackwards("E2ZDAZVETT")).toEqual(false);
+  expect(spellLastnameBackwards("EZD#AZVET")).toEqual(false);
+  expect(spellLastnameBackwards("ezdavzet")).toEqual(false);
+  expect(spellLastnameBackwards("eZdavzET")).toEqual(false);
+  expect(spellLastnameBackwards("EZDAZ VET")).toEqual(false);
+  expect(spellLastnameBackwards("#$%^&*")).toEqual(false);
+  expect(spellLastnameBackwards("")).toEqual(false);
+});
+
+test("Level 6 - Combined letters in the password create one of the rainbow color", () => {
   expect(rainbowColor("red")).toEqual(true);
   expect(rainbowColor("orange")).toEqual(true);
   expect(rainbowColor("yellow")).toEqual(true);
@@ -87,54 +103,7 @@ test("Combined letters in the password create one of the rainbow color", () => {
   expect(rainbowColor("VioLeT")).toEqual(true);
 });
 
-test("The 5th and 7th characters must be numbers", () => {
-  expect(fifthAndSeventhNumber("123456789")).toEqual(true);
-  expect(fifthAndSeventhNumber("12345a7a9")).toEqual(false);
-  expect(fifthAndSeventhNumber("asgeagawgega")).toEqual(false);
-  expect(fifthAndSeventhNumber("asdfa4f5a")).toEqual(true);
-  expect(fifthAndSeventhNumber("")).toEqual(false);
-  expect(fifthAndSeventhNumber("!@$!#5#4#@")).toEqual(true);
-  expect(fifthAndSeventhNumber("asf34")).toEqual(false);
-  expect(fifthAndSeventhNumber("as")).toEqual(false);
-  expect(fifthAndSeventhNumber("123")).toEqual(false);
-  expect(fifthAndSeventhNumber(123456789)).toEqual(false);
-  expect(fifthAndSeventhNumber("abcde6789")).toEqual(true);
-  expect(fifthAndSeventhNumber("12a45a78")).toEqual(false);
-  expect(fifthAndSeventhNumber("123456")).toEqual(false);
-  expect(fifthAndSeventhNumber("a1b2c3d4e5f6g7h8i9")).toEqual(true);
-  expect(fifthAndSeventhNumber("abcd!@#efg")).toEqual(false);
-  expect(fifthAndSeventhNumber("12345 67 89")).toEqual(false);
-  expect(fifthAndSeventhNumber(undefined)).toEqual(false);
-  expect(fifthAndSeventhNumber(null)).toEqual(false);
-  expect(fifthAndSeventhNumber({ key: "value" })).toEqual(false);
-  expect(
-    fifthAndSeventhNumber(["1", "2", "3", "4", "5", "6", "7", "8", "9"])
-  ).toEqual(false); //
-});
-
-test("Starts with a number", () => {
-  expect(startNumber("123asdf")).toEqual(true);
-  expect(startNumber("asd12")).toEqual(false);
-  expect(startNumber("")).toEqual(false);
-  expect(startNumber(" ")).toEqual(false);
-  expect(startNumber("!@#!12sad")).toEqual(false);
-  expect(startNumber("12!@#!12sad")).toEqual(true);
-  expect(startNumber(1234)).toEqual(false);
-});
-
-test("Ends with a special character", () => {
-  expect(symbolEnd("1234!")).toEqual(true);
-  expect(symbolEnd("1234!@$!")).toEqual(true);
-  expect(symbolEnd("!")).toEqual(true);
-  expect(symbolEnd("123")).toEqual(false);
-  expect(symbolEnd("!@#123")).toEqual(false);
-  expect(symbolEnd("1W2#3")).toEqual(false);
-  expect(symbolEnd("1W2#3 ")).toEqual(false);
-  expect(symbolEnd("")).toEqual(false);
-  expect(symbolEnd(" ")).toEqual(false);
-});
-
-test("3 letter palindrome word before the last character", () => {
+test("Level 7 - 3 letter palindrome word before the last character", () => {
   expect(palindrome("awdf222qweewe3")).toEqual(true);
   expect(palindrome("ana")).toEqual(false);
   expect(palindrome("awdfana3")).toEqual(true);
@@ -148,18 +117,49 @@ test("3 letter palindrome word before the last character", () => {
   expect(palindrome(12341)).toEqual(false);
 });
 
-test("Password must include my last name (UPPERCASED)", () => {
-  expect(spellLastnameBackwards("EZDAZVET")).toEqual(true);
-  expect(spellLastnameBackwards("fsaEZDAZVET")).toEqual(true);
-  expect(spellLastnameBackwards("EZDAZVETadwa")).toEqual(true);
-  expect(spellLastnameBackwards("321EZDAZVETadwa")).toEqual(true);
-  expect(spellLastnameBackwards("321EZDAZVET@#$@!")).toEqual(true);
-  expect(spellLastnameBackwards(" EZDAZVET ")).toEqual(true);
-  expect(spellLastnameBackwards("E2ZDAZVETT")).toEqual(false);
-  expect(spellLastnameBackwards("EZD#AZVET")).toEqual(false);
-  expect(spellLastnameBackwards("ezdavzet")).toEqual(false);
-  expect(spellLastnameBackwards("eZdavzET")).toEqual(false);
-  expect(spellLastnameBackwards("EZDAZ VET")).toEqual(false);
-  expect(spellLastnameBackwards("#$%^&*")).toEqual(false);
-  expect(spellLastnameBackwards("")).toEqual(false);
+test("Level 8 - The 6th and 8th characters must be numbers", () => {
+  expect(sixthAndSeventhNumber("123456789")).toEqual(true);
+  expect(sixthAndSeventhNumber("12345a7a9")).toEqual(false);
+  expect(sixthAndSeventhNumber("asgeagawgega")).toEqual(false);
+  expect(sixthAndSeventhNumber("asdfa4f5a")).toEqual(true);
+  expect(sixthAndSeventhNumber("")).toEqual(false);
+  expect(sixthAndSeventhNumber("!@$!#5#4#@")).toEqual(true);
+  expect(sixthAndSeventhNumber("asf34")).toEqual(false);
+  expect(sixthAndSeventhNumber("as")).toEqual(false);
+  expect(sixthAndSeventhNumber("123")).toEqual(false);
+  expect(sixthAndSeventhNumber(123456789)).toEqual(false);
+  expect(sixthAndSeventhNumber("abcde6789")).toEqual(true);
+  expect(sixthAndSeventhNumber("12a45a78")).toEqual(false);
+  expect(sixthAndSeventhNumber("123456")).toEqual(false);
+  expect(sixthAndSeventhNumber("a1b2c3d4e5f6g7h8i9")).toEqual(true);
+  expect(sixthAndSeventhNumber("abcd!@#efg")).toEqual(false);
+  expect(sixthAndSeventhNumber("12345 67 89")).toEqual(false);
+  expect(sixthAndSeventhNumber(undefined)).toEqual(false);
+  expect(sixthAndSeventhNumber(null)).toEqual(false);
+  expect(sixthAndSeventhNumber({ key: "value" })).toEqual(false);
+  expect(
+    sixthAndSeventhNumber(["1", "2", "3", "4", "5", "6", "7", "8", "9"])
+  ).toEqual(false); //
+});
+
+test("Level 9 - Ends with a special character", () => {
+  expect(symbolEnd("1234!")).toEqual(true);
+  expect(symbolEnd("1234!@$!")).toEqual(true);
+  expect(symbolEnd("!")).toEqual(true);
+  expect(symbolEnd("123")).toEqual(false);
+  expect(symbolEnd("!@#123")).toEqual(false);
+  expect(symbolEnd("1W2#3")).toEqual(false);
+  expect(symbolEnd("1W2#3 ")).toEqual(false);
+  expect(symbolEnd("")).toEqual(false);
+  expect(symbolEnd(" ")).toEqual(false);
+});
+
+test("Level 10 - Starts with a number", () => {
+  expect(startNumber("123asdf")).toEqual(true);
+  expect(startNumber("asd12")).toEqual(false);
+  expect(startNumber("")).toEqual(false);
+  expect(startNumber(" ")).toEqual(false);
+  expect(startNumber("!@#!12sad")).toEqual(false);
+  expect(startNumber("12!@#!12sad")).toEqual(true);
+  expect(startNumber(1234)).toEqual(false);
 });

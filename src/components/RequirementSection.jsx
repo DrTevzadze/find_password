@@ -10,7 +10,7 @@ import {
   spellLastnameBackwards,
   rainbowColor,
   palindrome,
-  fifthAndSeventhNumber,
+  sixthAndSeventhNumber,
   symbolEnd,
   startNumber,
 } from "./utilities/utilities";
@@ -40,9 +40,9 @@ function RequirementSection({ text }) {
   const isLastName = useValidationEffect(text, spellLastnameBackwards);
   const isRainbow = useValidationEffect(text, rainbowColor);
   const isPalindrome = useValidationEffect(text, palindrome);
-  const isFifthAndSeventhNumber = useValidationEffect(
+  const isSixthAndSeventhNumber = useValidationEffect(
     text,
-    fifthAndSeventhNumber
+    sixthAndSeventhNumber
   );
   const isSymbolEnd = useValidationEffect(text, symbolEnd);
   const isStartNumber = useValidationEffect(text, startNumber);
@@ -74,7 +74,7 @@ function RequirementSection({ text }) {
     },
     {
       content:
-        "Bring some color to your password with at least one rainbow hue.",
+        "Infuse your password by including a hidden rainbow word. The letters don't need to be next to each other.",
       isValid: isRainbow,
     },
     {
@@ -85,7 +85,7 @@ function RequirementSection({ text }) {
     {
       content:
         "Ensure the 6th and 8th characters in your password are both numbers.",
-      isValid: isFifthAndSeventhNumber,
+      isValid: isSixthAndSeventhNumber,
     },
     {
       content: "Place a special character at the very end of your password.",

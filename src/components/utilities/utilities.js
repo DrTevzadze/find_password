@@ -185,7 +185,7 @@ const palindrome = (input) => {
 
 // Level 9 - The 5th and 7th characters must be numbers.
 
-const fifthAndSeventhNumber = (input) => {
+const sixthAndSeventhNumber = (input) => {
   if (!input || input.length < 8 || typeof input !== "string") {
     return false;
   }
@@ -227,7 +227,7 @@ export {
   spellLastnameBackwards,
   rainbowColor,
   palindrome,
-  fifthAndSeventhNumber,
+  sixthAndSeventhNumber,
   symbolEnd,
   startNumber,
 };
