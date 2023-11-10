@@ -66,10 +66,11 @@ const includeLowerCase = (input) => {
 
   for (let i = 0; i < input.length; i++) {
     if (letters.includes(input[i])) {
+      console.log(true);
       return true;
     }
   }
-
+  console.log(false);
   return false;
 };
 
@@ -83,9 +84,11 @@ const includeUpperCase = (input) => {
   const upperCase = letters.map((letter) => letter.toUpperCase());
   for (let i = 0; i < input.length; i++) {
     if (upperCase.includes(input[i])) {
+      console.log(true);
       return true;
     }
   }
+  console.log(false);
   return false;
 };
 
