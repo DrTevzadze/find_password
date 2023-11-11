@@ -53,3 +53,16 @@ body {
 }
 
 /* #endregion */
+
+/* #region - Left Section */
+.pass-section input {
+  font-size: 24px;
+  text-align: center;
+  min-width: 20ch;
+  width: 20ch;
+  box-sizing: content-box;
+  transition: all 0.3s ease;
+  padding: 0.3rem;
+}
+
+/* #endregion */

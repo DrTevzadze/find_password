@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="grid-container">
       <div className="left-section">
+        <h1>Can you find the password?</h1>
         <PasswordSection
-          header="Can you find the password?"
           change={(e) => setText(e.target.value)}
         />
       </div>
