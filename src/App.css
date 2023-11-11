@@ -44,10 +44,12 @@ body {
 
 .red {
   background-color: red;
+  transition: all 0.6s ease;
 }
 
 .green {
   background-color: green;
+  transition: all 0.6s ease;
 }
 
 /* #endregion */
