@@ -1,7 +1,4 @@
-/* TODO: Add scroll button on the right section if the section overflows. Use scroll Y*/
-
 body {
-  /* Control the scroll button */
   margin: 0;
   padding: 0;
 }
@@ -15,23 +12,28 @@ body {
   height: 100vh;
 }
 
-.left-section {
+/* #region - Section*/
+
+.left-section,
+.right-section {
   display: grid;
+  background-color: #fffae9;
+  border-radius: 8px;
+}
+
+.left-section {
   place-items: center;
   grid-column: span 2;
-  background-color: #fffae9; /* Change color of the left section */
-  border-radius: 8px;
   overflow: hidden;
 }
 
 .right-section {
-  display: grid;
   gap: 1rem;
-  background-color: #fffae9; /* Change color of the right section*/
-  border-radius: 8px;
   overflow-y: auto;
-  max-height: 100%;
 }
+/* #endregion */
+
+/* #region - Cards */
 
 .card {
   outline: 2px solid darkorchid;
@@ -45,3 +47,5 @@ body {
 .green {
   background-color: green;
 }
+
+/* #endregion */
