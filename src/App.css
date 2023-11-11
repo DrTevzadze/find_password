@@ -38,6 +38,8 @@ body {
 .card {
   outline: 2px solid darkorchid;
   border-radius: 8px;
+  margin: 0 0.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
 }
 
 .red {
