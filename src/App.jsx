@@ -8,18 +8,19 @@ function App() {
 
   return (
     <div className="grid-container">
-      <div className="left-section">
-        <h1>Can you find the password?</h1>
-        <PasswordSection
-          change={(e) => setText(e.target.value)}
-        />
+      {/* Left Section */}
+      <div className="info">
+        <h1>Start from the beginning</h1>
       </div>
-      <div className="right-section">
-        <div className="right-section-header">
+      {/* Main Section */}
+      <div className="main-section">
+        <PasswordSection change={(e) => setText(e.target.value)} />
+        <div className="rules">
           <h1>REQUIREMENTS</h1>
         </div>
         <RequirementSection text={text} />
       </div>
+      {/* Right Section */}
     </div>
   );
 }
