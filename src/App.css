@@ -1,7 +1,7 @@
 /* TODO: Add scroll button on the right section if the section overflows. Use scroll Y*/
 
 body {
-  overflow: hidden; /* Control the scroll button */
+  /* Control the scroll button */
   margin: 0;
   padding: 0;
 }
@@ -9,27 +9,29 @@ body {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+  gap: 1rem;
   box-sizing: border-box;
-  background-color: grey; /* Change the color of the gap */
-  height: 100vh;
+  background-color: #fff; /* Change the color of the gap */
 }
 
 .left-section {
   display: grid;
   place-items: center;
   grid-column: span 2;
-  background-color: red; /* Change color of the left section */
+  background-color: #fffae9; /* Change color of the left section */
+  border-radius: 8px;
 }
 
 .right-section {
   display: grid;
   gap: 1rem;
-  background-color: antiquewhite; /* Change color of the right section*/
+  background-color: #fffae9; /* Change color of the right section*/
+  border-radius: 8px;
 }
 
 .card {
   outline: 2px solid darkorchid;
+  border-radius: 8px;
 }
 
 .red {
