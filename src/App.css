@@ -12,6 +12,7 @@ body {
   gap: 1rem;
   box-sizing: border-box;
   background-color: #fff; /* Change the color of the gap */
+  height: 100vh;
 }
 
 .left-section {
@@ -20,6 +21,7 @@ body {
   grid-column: span 2;
   background-color: #fffae9; /* Change color of the left section */
   border-radius: 8px;
+  overflow: hidden;
 }
 
 .right-section {
@@ -27,6 +29,8 @@ body {
   gap: 1rem;
   background-color: #fffae9; /* Change color of the right section*/
   border-radius: 8px;
+  overflow-y: auto;
+  max-height: 100%;
 }
 
 .card {
