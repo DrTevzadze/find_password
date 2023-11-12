@@ -60,7 +60,7 @@ input {
   font-size: 2rem;
   text-align: center;
   min-width: 20ch;
-  max-width: 40ch;
+  max-width: 32ch;
   width: 20ch; /* Necessary so that the input box doesn't shrink on the first character*/
   box-sizing: content-box;
   transition: all 0.3s ease;
@@ -167,12 +167,12 @@ input {
 
 .red {
   background-color: #ffecec;
-  border: 1px solid #f47d7d;
+  border: 1px solid #ea5050;
 }
 
 .green {
   background-color: #e3ffe3;
-  border: 1px solid #aef3ae;
+  border: 1px solid #199019;
 }
 
 /* #endregion */
