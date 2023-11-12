@@ -14,7 +14,8 @@ function App() {
       </div>
       {/* Main Section */}
       <div className="main-section">
-        <PasswordSection change={(e) => setText(e.target.value)} />
+
+        <PasswordSection change={(e) => setText(e.target.value)} text={text}/>
         <div className="rules">
           <h1>REQUIREMENTS</h1>
         </div>

@@ -1,23 +1,28 @@
 :root {
   --background-color: #fffae9;
   font-family: serif;
+  font-size: 16px;
 }
 
 * {
   font-weight: 400;
 }
 
+html {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--background-color); /* Change the color of the gap */
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 2fr 1fr;
   gap: 0.5rem;
   box-sizing: border-box;
-  background-color: var(--background-color); /* Change the color of the gap */
   height: 100vh;
 }
 
@@ -27,25 +32,88 @@ body {
 
 /* #region - Main Section */
 
-.main-section {
+.main-section,
+.pass-section,
+.cards {
   display: grid;
   place-items: center;
 }
 
-header {
+header h1 {
   position: relative;
-  font-size: 1.5rem;
+  font-size: 3em;
 }
 
 /* The * sign */
 header h1::before {
   content: "*";
   position: absolute;
-  top: 35%;
+  top: 20%;
   left: -10%;
   right: 0;
   bottom: 0;
   font-size: 1em;
+}
+
+input {
+  border-radius: 8px;
+  font-size: 2rem;
+  text-align: center;
+  min-width: 20ch;
+  max-width: 40ch;
+  width: 20ch; /* Necessary so that the input box doesn't shrink on the first character*/
+  box-sizing: content-box;
+  transition: all 0.3s ease;
+  padding: 0.3rem;
+  text-wrap: wrap;
+}
+
+/* Requirement styling */
+.rules h1 {
+  position: relative;
+  cursor: pointer;
+}
+
+.rules h1::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: #000;
+  bottom: -5%;
+  left: 0;
+  transform: scale(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+}
+
+.rules h1:hover::after {
+  transform-origin: left;
+  transform: scale(1);
+}
+
+@media (max-width: 1220px) {
+  :root {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 860px) {
+  :root {
+    font-size: 0.6em;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .card {
+    max-width: 50%;
+    min-width: 200px;
+  }
+  .info {
+    display: none;
+  }
 }
 
 /* #endregion */
@@ -56,35 +124,29 @@ header h1::before {
 
 /* #region - Cards */
 
+.cards {
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
 .card {
-  outline: 2px solid darkorchid;
   border-radius: 8px;
   margin: 0 0.5rem;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+  padding: 0 0.5em;
+  width: 80%;
 }
 
 .red {
-  background-color: red;
+  background-color: #ffc7c7;
   transition: all 0.6s ease;
+  border: 1px solid #f47d7d;
 }
 
 .green {
-  background-color: green;
+  background-color: #aef3ae;
   transition: all 0.6s ease;
-}
-
-/* #endregion */
-
-/* #region - Input */
-.pass-section input {
-  font-size: 24px;
-  text-align: center;
-  min-width: 20ch;
-  width: 20ch; /* Necessary so that the input box doesn't shrink on the first character*/
-  box-sizing: content-box;
-  transition: all 0.3s ease;
-  padding: 0.3rem;
-  text-wrap: wrap;
+  border: 1px solid #70f570;
 }
 
 /* #endregion */

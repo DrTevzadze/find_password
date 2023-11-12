@@ -23,7 +23,7 @@ function PasswordSection({ text, change }) {
             (e.target.style.width = (e.target.value.length + 1) * 1 + "ch")
           }
         />
-        <h2>{text}</h2>
+        <h2>Length: {text ? text.length : 0}</h2>
       </div>
     </>
   );

@@ -99,13 +99,13 @@ function RequirementSection({ text }) {
   ];
 
   return (
-    <>
+    <div className="cards">
       {cardData.map(({ content, isValid }, index) => (
         <div key={index} className={`card ${isValid ? "green" : "red"}`}>
           <Card content={`Rule ${index + 1} - ${content}`} text={text} />
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
