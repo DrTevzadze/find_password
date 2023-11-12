@@ -1,10 +1,20 @@
 /* eslint-disable react/prop-types */
+import { useRef, useEffect } from "react";
 
 function PasswordSection({ text, change }) {
+
+  const contentEditable = useRef(null);
+
+  useEffect(() => {
+    contentEditable.current.focus();
+  }, []);
+
+
   return (
     <div className="pass-section">
       <label htmlFor="passwordInput"></label>
       <input
+      ref={contentEditable}
         type="text"
         onChange={change}
         onInput={(e) =>

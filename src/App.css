@@ -5,6 +5,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .grid-container {
@@ -12,7 +13,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.5rem;
   box-sizing: border-box;
-  background-color: #fff; /* Change the color of the gap */
+  background-color: var(--background-color); /* Change the color of the gap */
   height: 100vh;
 }
 
