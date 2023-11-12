@@ -1,16 +1,20 @@
 :root {
   --background-color: #fffae9;
+  font-family: serif;
+}
+
+* {
+  font-weight: 400;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
   box-sizing: border-box;
   background-color: var(--background-color); /* Change the color of the gap */
@@ -22,6 +26,27 @@ body {
 /* #endregion */
 
 /* #region - Main Section */
+
+.main-section {
+  display: grid;
+  place-items: center;
+}
+
+header {
+  position: relative;
+  font-size: 1.5rem;
+}
+
+/* The * sign */
+header h1::before {
+  content: "*";
+  position: absolute;
+  top: 35%;
+  left: -10%;
+  right: 0;
+  bottom: 0;
+  font-size: 1em;
+}
 
 /* #endregion */
 

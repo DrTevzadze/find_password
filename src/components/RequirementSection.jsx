@@ -30,6 +30,7 @@ function useValidationEffect(text, validationFunction) {
 // Function Component!
 
 function RequirementSection({ text }) {
+  // #region Variables
   const isLowerCaseValid = useValidationEffect(text, includeLowerCase);
   const isUpperCaseValid = useValidationEffect(text, includeUpperCase);
   const isSpecialCharacter = useValidationEffect(
@@ -46,7 +47,7 @@ function RequirementSection({ text }) {
   );
   const isSymbolEnd = useValidationEffect(text, symbolEnd);
   const isStartNumber = useValidationEffect(text, startNumber);
-
+  //#endregion
   const cardData = [
     {
       content:
