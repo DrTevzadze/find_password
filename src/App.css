@@ -80,7 +80,7 @@ input {
   height: 3px;
   width: 100%;
   background-color: #000;
-  bottom: -5%;
+  bottom: -10%;
   left: 0;
   transform: scale(0);
   transform-origin: right;
@@ -95,13 +95,7 @@ input {
 
 @media (max-width: 1220px) {
   :root {
-    font-size: 0.7em;
-  }
-}
-
-@media (max-width: 860px) {
-  :root {
-    font-size: 0.6em;
+    font-size: 0.9em;
   }
   .grid-container {
     display: grid;
@@ -109,7 +103,7 @@ input {
   }
   .card {
     max-width: 50%;
-    min-width: 200px;
+    min-width: 300px;
   }
   .info {
     display: none;
