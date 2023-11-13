@@ -110,6 +110,15 @@ input {
   }
 }
 
+@media (max-width: 450px) {
+  header h1 {
+    font-size: 2.2em;
+  }
+  input {
+    min-width: 15ch;
+  }
+}
+
 /* #endregion */
 
 /* #region - Scoreboard */
