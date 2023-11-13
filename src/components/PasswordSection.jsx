@@ -15,14 +15,7 @@ function PasswordSection({ text, change }) {
       </header>
       <div className="pass-section">
         <label htmlFor="passwordInput"></label>
-        <input
-          ref={contentEditable}
-          type="text"
-          onChange={change}
-          onInput={(e) =>
-            (e.target.style.width = (e.target.value.length + 1) * 1 + "ch")
-          }
-        />
+        <textarea ref={contentEditable} type="text" onChange={change} />
         <h2>Length: {text ? text.length : 0}</h2>
       </div>
     </>
