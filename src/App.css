@@ -71,6 +71,22 @@ textarea {
   overflow: hidden;
 }
 
+.pass-section p {
+  background-color: #fff;
+  width: 25ch;
+  max-width: 30ch;
+  border: 1px solid #000;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 2rem;
+  overflow-wrap: break-word;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+
+
 .choose-pass {
   display: flex;
   width: 100%;
