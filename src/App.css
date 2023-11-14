@@ -84,7 +84,7 @@ textarea {
   overflow-wrap: break-word;
   box-sizing: content-box;
   margin: 0;
-  padding: 0 1rem;
+  padding: 0.3rem 1rem;
 }
 
 .choose-pass {
