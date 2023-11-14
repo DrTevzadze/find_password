@@ -136,9 +136,12 @@ textarea {
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   header h1 {
     font-size: 2.2em;
+  }
+  header h1::before {
+    margin: 0 0.6rem;
   }
   .pass-section p {
     width: 16ch;
