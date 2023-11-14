@@ -9,12 +9,10 @@ function App() {
   return (
     <div className="grid-container">
       {/* Left Section */}
-      <div className="info">
-        <h1>Start from the beginning</h1>
-      </div>
+      <div className="info"></div>
       {/* Main Section */}
       <div className="main-section">
-        <PasswordSection change={(newText) => setText(newText)} text={text}/>
+        <PasswordSection change={(newText) => setText(newText)} text={text} />
         <div className="rules">
           <h1>REQUIREMENTS</h1>
         </div>
