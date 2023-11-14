@@ -25,7 +25,7 @@ body {
   grid-template-columns: 1fr 2fr 1fr;
   gap: 0.5rem;
   box-sizing: border-box;
-  height: 100vh; /* Maybe Remove? */
+  overflow-y: hidden;
 }
 
 /* #region - Info */
