@@ -65,12 +65,12 @@ function RequirementSection({ text }) {
       isValid: isSpecialCharacter,
     },
     {
-      content: "Ensure the numbers in your password add up to a lucky 15.",
+      content: `Ensure the numbers in your password add up to a lucky 15.`,
       isValid: isSumNumbers,
     },
     {
       content:
-        "Include the author's last name, but keep it clean - no extra characters in the middle.",
+        "Capitalize only the last name of the game's author, without adding any extra characters in the middle.",
       isValid: isLastName,
     },
     {
@@ -101,8 +101,16 @@ function RequirementSection({ text }) {
   return (
     <div className="cards">
       {cardData.map(({ content, isValid }, index) => (
-        <div key={index} className={`card ${isValid ? "green top-green" : "red top-red"}`}>
-          <Card content={content} text={text} rule={`Rule ${index + 1}`} isValid={isValid} />
+        <div
+          key={index}
+          className={`card ${isValid ? "green top-green" : "red top-red"}`}
+        >
+          <Card
+            content={content}
+            text={text}
+            rule={`Rule ${index + 1}`}
+            isValid={isValid}
+          />
         </div>
       ))}
     </div>
