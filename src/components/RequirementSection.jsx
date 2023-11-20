@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 import Card from "./Card";
 import { useEffect, useState } from "react";
@@ -27,6 +28,13 @@ function useValidationEffect(text, validationFunction) {
 
   return isValid;
 }
+
+// Check if all the functions are returning true
+export const areAllValid = (validations) => {
+  const result = validations.every((isValid) => isValid);
+
+  return result;
+};
 
 // Function Component!
 
@@ -99,10 +107,6 @@ function RequirementSection({ text }) {
     },
   ];
 
-  const areAllValid = validations => {
-    return validations.every(isValid => isValid)
-  };
-
   return (
     <div className="cards">
       {cardData.map(({ content, isValid }, index) => (
@@ -118,7 +122,7 @@ function RequirementSection({ text }) {
           />
         </div>
       ))}
-      <Modal allValid={areAllValid} />
+      <Modal allValid={areAllValid(cardData.map(({ isValid }) => isValid))} />
     </div>
   );
 }

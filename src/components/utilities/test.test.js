@@ -11,6 +11,7 @@ import {
   symbolEnd,
   startNumber,
 } from "./utilities";
+import { areAllValid } from "../RequirementSection.jsx";
 
 test("Level 1 - Lowercase letter is included in the password", () => {
   expect(includeLowerCase("asdF")).toEqual(true); // At least one lowercase
