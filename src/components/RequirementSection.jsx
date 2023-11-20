@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import Card from "./Card";
 import { useEffect, useState } from "react";
+import Modal from "./Modal";
 // Import Requirement Functions
 import {
   includeLowerCase,
@@ -98,6 +99,10 @@ function RequirementSection({ text }) {
     },
   ];
 
+  const areAllValid = validations => {
+    return validations.every(isValid => isValid)
+  };
+
   return (
     <div className="cards">
       {cardData.map(({ content, isValid }, index) => (
@@ -113,6 +118,7 @@ function RequirementSection({ text }) {
           />
         </div>
       ))}
+      <Modal allValid={areAllValid} />
     </div>
   );
 }
