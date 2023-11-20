@@ -1,9 +1,14 @@
 /* eslint-disable react/prop-types */
-function Modal({ allValid }) {
+function Modal({ allValid, text }) {
+
+
   return (
     allValid && (
-      <div>
-        <h1>Modal</h1>
+      <div className="modal">
+        <h1>Congratulations! You Won!</h1>
+        <ol>
+          <li>{text.length}</li>
+        </ol>
       </div>
     )
   );

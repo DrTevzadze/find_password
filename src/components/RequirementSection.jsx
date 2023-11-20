@@ -122,7 +122,7 @@ function RequirementSection({ text }) {
           />
         </div>
       ))}
-      <Modal allValid={areAllValid(cardData.map(({ isValid }) => isValid))} />
+      <Modal allValid={areAllValid(cardData.map(({ isValid }) => isValid))} text={text}/>
     </div>
   );
 }
