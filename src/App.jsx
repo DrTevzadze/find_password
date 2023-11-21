@@ -14,7 +14,7 @@ function App() {
   }
 
   return (
-    <div className="grid-container">
+    <div className={isEnter ? `grid-container overlay` : "grid-container"}>
       {/* Left Section */}
       <div className="info"></div>
       {/* Main Section */}
@@ -25,13 +25,16 @@ function App() {
           closeTab={closeTab}
           setEnter={isEnter}
         />
+        {!isEnter && (
+          <>
         <PasswordSection change={(newText) => setText(newText)} text={text} />
         <div className="rules">
           <h1>REQUIREMENTS</h1>
         </div>
         <RequirementSection text={text} />
-      </div>
-      {/* Right Section */}
+        </>
+      )}
+    </div>
     </div>
   );
 }

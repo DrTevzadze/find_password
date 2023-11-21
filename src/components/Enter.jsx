@@ -27,8 +27,9 @@ function Enter({ nickName, change, closeTab, setEnter }) {
               required
             />
           </label>
+          <br />
           <button type="submit" disabled={nickName.length < 6}>
-            Start
+            Start the Game
           </button>
         </form>
       </div>

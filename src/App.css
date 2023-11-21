@@ -147,7 +147,25 @@ textarea {
 /* #endregion */
 
 /* #region - Scoreboard */
+.enter {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--background-color);
+  padding: 4rem;
+}
 
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+}
 /* #endregion */
 
 /* #region - Cards */
