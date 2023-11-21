@@ -24,6 +24,7 @@ function Enter({ nickName, change, closeTab, setEnter }) {
               onChange={change}
               value={nickName}
               minLength={6}
+              maxLength={16}
               placeholder="Enter your nickname"
               //Remove the spellcheck from the input
               spellCheck={false}
