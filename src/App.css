@@ -294,3 +294,57 @@ textarea {
 }
 
 /* #endregion */
+
+/* #region - Scoreboard */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--background-color);
+  border: 2px solid var(--text-clr);
+  border-radius: 5px;
+  padding: 3rem 5rem;
+  text-align: center;
+}
+
+.modal h1 {
+  font-size: 3rem;
+  position: relative;
+}
+
+.modal h1::after {
+  content: "";
+  background-color: #183153;
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  border-radius: 50%;
+}
+
+.modal ol {
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+.modal ol li p {
+  font-size: 1.2rem;
+}
+
+.modal ol li p span {
+  display: grid;
+
+  padding: 0.6rem;
+}
+
+@media (max-width: 500px) {
+  .modal {
+    padding: 1.5rem;
+  }
+}
+
+/* #endregion */

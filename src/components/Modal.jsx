@@ -33,8 +33,10 @@ function Modal({ allValid, text, nickName }) {
         <ol>
           {top5Entries.map((item, index) => (
             <li key={index}>
-              <p>Name: {item.nickName}</p>
-              <p>Password Length: {item.passwordLength}</p>
+              <p>
+                <span>Name: {item.nickName}</span> Password Length:{" "}
+                {item.passwordLength}
+              </p>
             </li>
           ))}
         </ol>

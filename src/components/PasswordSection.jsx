@@ -32,7 +32,7 @@ function PasswordSection({ text, change }) {
       <div className="pass-section">
         <label htmlFor="passwordInput"></label>
         <div className="choose-pass">
-          <h3>Please choose a pasword: </h3>
+          <h3>Please choose a password: </h3>
           <h3>{text ? text.length : 0}</h3>
         </div>
         <p
