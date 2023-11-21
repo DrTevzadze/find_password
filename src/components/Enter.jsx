@@ -13,8 +13,6 @@ function Enter({ nickName, change, closeTab, setEnter }) {
     closeTab();
   };
 
-  const isButtonDisabled = nickName.length < 6;
-
   return (
     setEnter && (
       <div className="enter">
@@ -29,7 +27,7 @@ function Enter({ nickName, change, closeTab, setEnter }) {
               required
             />
           </label>
-          <button type="submit" disabled={isButtonDisabled}>
+          <button type="submit" disabled={nickName.length < 6}>
             Start
           </button>
         </form>
