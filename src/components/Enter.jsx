@@ -24,13 +24,14 @@ function Enter({ nickName, change, closeTab, setEnter }) {
               onChange={change}
               value={nickName}
               minLength={6}
+              placeholder="Enter your nickname"
+              //Remove the spellcheck from the input
+              spellCheck={false}
               required
             />
           </label>
           <br />
-          <button type="submit" disabled={nickName.length < 6}>
-            Start the Game
-          </button>
+          <button type="submit">Start the Game</button>
         </form>
       </div>
     )

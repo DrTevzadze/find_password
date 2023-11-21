@@ -40,6 +40,7 @@ function PasswordSection({ text, change }) {
           contentEditable={true}
           type="text"
           onChange={change}
+          spellCheck={false}
         ></p>
       </div>
     </div>
