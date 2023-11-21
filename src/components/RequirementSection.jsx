@@ -38,7 +38,7 @@ export const areAllValid = (validations) => {
 
 // Function Component!
 
-function RequirementSection({ text }) {
+function RequirementSection({ text, nickName }) {
   // #region Variables
   const isLowerCaseValid = useValidationEffect(text, includeLowerCase);
   const isUpperCaseValid = useValidationEffect(text, includeUpperCase);
@@ -125,6 +125,7 @@ function RequirementSection({ text }) {
       <Modal
         allValid={areAllValid(cardData.map(({ isValid }) => isValid))}
         text={text}
+        nickName={nickName}
       />
     </div>
   );

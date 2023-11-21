@@ -31,7 +31,7 @@ function App() {
         <div className="rules">
           <h1>REQUIREMENTS</h1>
         </div>
-        <RequirementSection text={text} />
+        <RequirementSection text={text} nickName={nickName} />
         </>
       )}
     </div>
