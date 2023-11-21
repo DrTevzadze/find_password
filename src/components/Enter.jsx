@@ -1,23 +1,16 @@
 /* eslint-disable react/prop-types */
 function Enter({ nickName, change, closeTab, setEnter }) {
-  console.log(nickName);
-  console.log(change);
+  // Save the nickname to the local storage
   const handleSave = () => {
-    if (typeof localStorage !== "undefined") {
-      // Your localStorage code here
-    } else {
-      console.error("localStorage is not supported");
-    }
+    const scoreboardEntry = { nickName };
+    const scoreboard = JSON.parse(localStorage.getItem("scoreboard")) || [];
+    console.log("Before push:", scoreboard);
+    scoreboard.push(scoreboardEntry);
+    console.log("After push:", scoreboard);
 
-    if (nickName !== "" && nickName.length > 6) {
-      const scoreboardEntry = { nickName };
-      const scoreboard = JSON.parse(localStorage.getItem("scoreboard")) || [];
-      console.log("Before push:", scoreboard);
-      scoreboard.push(scoreboardEntry);
-      console.log("After push:", scoreboard);
-
-      localStorage.setItem("scoreboard", JSON.stringify(scoreboard));
-    }
+    localStorage.setItem("scoreboard", JSON.stringify(scoreboard));
+    // Once stored, close the window
+    closeTab();
   };
 
   const isButtonDisabled = nickName.length < 6;
@@ -36,7 +29,7 @@ function Enter({ nickName, change, closeTab, setEnter }) {
               required
             />
           </label>
-          <button onClick={closeTab} type="submit" disabled={isButtonDisabled}>
+          <button type="submit" disabled={isButtonDisabled}>
             Start
           </button>
         </form>
