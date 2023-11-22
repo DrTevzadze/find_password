@@ -29,6 +29,8 @@ function Modal({ allValid, text, nickName }) {
     }
   }, [allValid, playSound, playWin]);
 
+  document.getElementById('yourButtonId').addEventListener('click', handleClick);
+
   useEffect(() => {
     if (allValid) {
       document.documentElement.style.overflowY = "hidden";
