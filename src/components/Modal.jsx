@@ -19,9 +19,18 @@ function Modal({ allValid, text, nickName }) {
     }
   }, [nickName, text, allValid]);
 
+  // Play the sound
   useEffect(() => {
     allValid ? playSound() : null;
   }, [allValid, playSound]);
+
+  useEffect(() => {
+    if (allValid) {
+      document.documentElement.style.overflowY = "hidden";
+    } else {
+      document.documentElement.style.overflowY = "auto";
+    }
+  }, [allValid]);
 
   // Sort the scoreboard
   const sortedScoreboard = scoreboardData.sort((a, b) => {
@@ -34,6 +43,9 @@ function Modal({ allValid, text, nickName }) {
   return (
     allValid && (
       <div className="modal">
+        <div className="firework"></div>
+        <div className="firework"></div>
+        <div className="firework"></div>
         <h1>Congratulations! You Won!</h1>
         <ol>
           {top5Entries.map((item, index) => (
