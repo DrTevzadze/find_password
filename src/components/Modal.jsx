@@ -21,7 +21,7 @@ function Modal({ allValid, text, nickName }) {
   useEffect(() => {
     const playWin = new Audio(winning);
     const playCheer = new Audio(cheering);
-    playWin.volume = 0.3;
+    playWin.volume = 0.2;
     playCheer.volume = 0.3;
     if (allValid) {
       playWin.play();
