@@ -228,7 +228,7 @@ button:hover {
     font-size: 1rem;
   }
 
-  .enter form button {
+  button {
     padding: 1.1rem;
     font-size: medium;
   }
@@ -343,7 +343,13 @@ button:hover {
 
 @media (max-width: 500px) {
   .modal {
-    padding: 1.5rem;
+    padding: 1rem;
+  }
+  .modal h1 {
+    font-size: 2rem;
+  }
+  .modal ol li p {
+    font-size: 1rem;
   }
 }
 
