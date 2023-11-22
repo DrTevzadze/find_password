@@ -1,10 +1,27 @@
 /* eslint-disable react/prop-types */
-import useSound from "use-sound";
+import { useEffect } from 'react';
+import useSound from 'use-sound';
 
 function Enter({ nickName, change, closeTab, setEnter }) {
-  const [playClick] = useSound("../assets/click.mp3");
+  const [playClick] = useSound('../assets/click.mp3');
 
- 
+  useEffect(() => {
+    const handleClick = () => {
+      playClick();
+    };
+
+    const button = document.getElementById('yourButtonId');
+
+    if (button) {
+      button.addEventListener('click', handleClick);
+    }
+
+    return () => {
+      if (button) {
+        button.removeEventListener('click', handleClick);
+      }
+    };
+  }, [playClick]);
 
   return (
     setEnter && (
@@ -19,13 +36,12 @@ function Enter({ nickName, change, closeTab, setEnter }) {
               minLength={6}
               maxLength={16}
               placeholder="Enter your nickname"
-              //Remove the spellcheck from the input
               spellCheck={false}
               required
             />
           </label>
           <br />
-          <button onClick={() => playClick()}>Start the Game</button>
+          <button id="yourButtonId">Start the Game</button>
         </form>
       </div>
     )
