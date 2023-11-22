@@ -1,24 +1,28 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
-import winning from "../../public/winning.mp3";
-import cheering from "../../public/cheering.wav";
-import click from "../../public/click.mp3";
+import winning from "/winning.mp3";
+import cheering from "/cheering.wav";
+import click from "/click.mp3";
 
 function Modal({ allValid, text, nickName }) {
   const [scoreboardData, setScoreboardData] = useState([]);
 
-  const playClick = new Audio(click);
-
   const handleClick = () => {
-    window.location.href = "https://drtevzadze-findpass.netlify.app";
+    const playClick = new Audio(click);
+    playClick.volume = 0.3;
     playClick.play();
+    const interval = setInterval(() => {
+      window.location.href = "https://drtevzadze-findpass.netlify.app";
+    }, 300);
+
+    return interval;
   };
 
   useEffect(() => {
     const playWin = new Audio(winning);
     const playCheer = new Audio(cheering);
-    playWin.volume = 0.4;
-    playCheer.volume = 0.4;
+    playWin.volume = 0.3;
+    playCheer.volume = 0.3;
     if (allValid) {
       playWin.play();
       playCheer.play();
