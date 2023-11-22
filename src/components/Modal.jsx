@@ -1,8 +1,27 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
+import winning from "../../public/winning.mp3";
+import cheering from "../../public/cheering.wav";
+import click from "../../public/click.mp3";
 
 function Modal({ allValid, text, nickName }) {
   const [scoreboardData, setScoreboardData] = useState([]);
+
+  const playClick = new Audio(click);
+
+  const handleClick = () => {
+    window.location.href = "https://drtevzadze-findpass.netlify.app";
+    playClick.play();
+  };
+
+  useEffect(() => {
+    const playWin = new Audio(winning);
+    const playCheer = new Audio(cheering);
+    if (allValid) {
+      playWin.play();
+      playCheer.play();
+    }
+  }, [allValid]);
 
   useEffect(() => {
     const existingData = JSON.parse(localStorage.getItem("scoreboard")) || [];
@@ -50,13 +69,7 @@ function Modal({ allValid, text, nickName }) {
             </li>
           ))}
         </ol>
-        <button
-          onClick={() =>
-            (window.location.href = "https://drtevzadze-findpass.netlify.app")
-          }
-        >
-          Try Again
-        </button>
+        <button onClick={handleClick}>Try Again</button>
       </div>
     )
   );
