@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
-function Enter({ nickName, change, closeTab, setEnter }) {
-  const clickAudio = new Audio("../public/click.mp3");
+import click from "../../public/click.mp3";
 
-  
+function Enter({ nickName, change, closeTab, setEnter }) {
+  const clickAudio = new Audio(click); 
 
   return (
     setEnter && (
