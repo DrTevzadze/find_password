@@ -13,6 +13,8 @@ function App() {
     setIsEnter(!isEnter)
   }
 
+  
+
   return (
     <div className={isEnter ? `grid-container overlay` : "grid-container"}>
       {/* Left Section */}

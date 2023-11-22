@@ -5,6 +5,7 @@ import useSound from "use-sound";
 function Modal({ allValid, text, nickName }) {
   const [scoreboardData, setScoreboardData] = useState([]);
   const [playSound] = useSound("../assets/cheering.wav", { volume: 0.2 });
+  const [playClick] = useSound("../assets/click.mp3");
 
   useEffect(() => {
     const existingData = JSON.parse(localStorage.getItem("scoreboard")) || [];
@@ -40,6 +41,11 @@ function Modal({ allValid, text, nickName }) {
   // Display only top 5
   const top5Entries = sortedScoreboard.slice(0, 5);
 
+  const handleClick = () => {
+    window.location.href = "https://drtevzadze-findpass.netlify.app";
+    playClick();
+  };
+
   return (
     allValid && (
       <div className="modal">
@@ -57,13 +63,7 @@ function Modal({ allValid, text, nickName }) {
             </li>
           ))}
         </ol>
-        <button
-          onClick={() =>
-            (window.location.href = "https://drtevzadze-findpass.netlify.app")
-          }
-        >
-          Try Again
-        </button>
+        <button onClick={handleClick}>Try Again</button>
       </div>
     )
   );
