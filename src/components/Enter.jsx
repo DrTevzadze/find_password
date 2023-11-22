@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 
 function Enter({ nickName, change, closeTab, setEnter }) {
+  const clickAudio = new Audio("../assets/click.mp3");
+
   return (
     setEnter && (
       <div className="enter">
@@ -20,7 +22,7 @@ function Enter({ nickName, change, closeTab, setEnter }) {
             />
           </label>
           <br />
-          <button>Start the Game</button>
+          <button onClick={() => clickAudio.play()}>Start the Game</button>
         </form>
       </div>
     )
