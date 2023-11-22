@@ -4,7 +4,7 @@ import useSound from "use-sound";
 
 function Modal({ allValid, text, nickName }) {
   const [scoreboardData, setScoreboardData] = useState([]);
-  const [playSound] = useSound("../assets/cheering.wav");
+  const [playSound] = useSound("../assets/cheering.wav", { volume: 0.2 });
 
   useEffect(() => {
     const existingData = JSON.parse(localStorage.getItem("scoreboard")) || [];
