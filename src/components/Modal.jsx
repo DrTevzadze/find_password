@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
-
 import { useState, useEffect } from "react";
+import useSound from "use-sound";
 
 function Modal({ allValid, text, nickName }) {
   const [scoreboardData, setScoreboardData] = useState([]);
+  const [playSound] = useSound("../assets/cheering.wav");
 
   useEffect(() => {
     const existingData = JSON.parse(localStorage.getItem("scoreboard")) || [];
@@ -17,6 +18,10 @@ function Modal({ allValid, text, nickName }) {
       setScoreboardData(updatedScoreboard);
     }
   }, [nickName, text, allValid]);
+
+  useEffect(() => {
+    allValid ? playSound() : null;
+  }, [allValid, playSound]);
 
   // Sort the scoreboard
   const sortedScoreboard = scoreboardData.sort((a, b) => {
