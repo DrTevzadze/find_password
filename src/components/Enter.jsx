@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 
 function Enter({ nickName, change, closeTab, setEnter }) {
-  const clickAudio = new Audio("../assets/click.mp3");
+  const clickAudio = new Audio("../public/click.mp3");
+
+  
 
   return (
     setEnter && (
