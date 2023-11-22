@@ -57,6 +57,13 @@ function Modal({ allValid, text, nickName }) {
             </li>
           ))}
         </ol>
+        <button
+          onClick={() =>
+            (window.location.href = "https://drtevzadze-findpass.netlify.app")
+          }
+        >
+          Try Again
+        </button>
       </div>
     )
   );

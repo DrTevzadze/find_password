@@ -193,7 +193,7 @@ textarea {
   opacity: 0.7;
 }
 
-.enter form button {
+button {
   background: #ffd43b;
   color: var(--text-clr);
   padding: 1.6rem;
@@ -207,11 +207,11 @@ textarea {
   -webkit-tap-highlight-color: transparent;
 }
 
-.enter form button:active {
+button:active {
   transform: translateY(2px);
 }
 
-.enter form button:hover {
+button:hover {
   background: #fab005;
 }
 
