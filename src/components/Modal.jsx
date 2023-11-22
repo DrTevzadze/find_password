@@ -4,8 +4,9 @@ import useSound from "use-sound";
 
 function Modal({ allValid, text, nickName }) {
   const [scoreboardData, setScoreboardData] = useState([]);
-  const [playSound] = useSound("../assets/cheering.wav", { volume: 0.2 });
+  const [playSound] = useSound("../assets/cheering.wav", { volume: 0.4 });
   const [playClick] = useSound("../assets/click.mp3");
+  const [playWin] = useSound("../assets/winning.mp3", { volume: 0.8 });
 
   useEffect(() => {
     const existingData = JSON.parse(localStorage.getItem("scoreboard")) || [];
@@ -22,8 +23,11 @@ function Modal({ allValid, text, nickName }) {
 
   // Play the sound
   useEffect(() => {
-    allValid ? playSound() : null;
-  }, [allValid, playSound]);
+    if (allValid) {
+      playWin();
+      playSound();
+    }
+  }, [allValid, playSound, playWin]);
 
   useEffect(() => {
     if (allValid) {
