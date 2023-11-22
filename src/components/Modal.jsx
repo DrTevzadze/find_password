@@ -29,7 +29,7 @@ function Modal({ allValid, text, nickName }) {
     }
   }, [allValid, playSound, playWin]);
 
-  document.getElementById('yourButtonId').addEventListener('click', handleClick);
+  document.getElementById('try-button"').addEventListener('click', handleClick);
 
   useEffect(() => {
     if (allValid) {
@@ -69,7 +69,7 @@ function Modal({ allValid, text, nickName }) {
             </li>
           ))}
         </ol>
-        <button onClick={handleClick}>Try Again</button>
+        <button onClick={handleClick} id="try-button">Try Again</button>
       </div>
     )
   );
