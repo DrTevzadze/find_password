@@ -79,7 +79,7 @@ function RequirementSection({ text, nickName }) {
     },
     {
       content:
-        "Capitalize only the last name of the game's author, without adding any extra characters in the middle.",
+        "Capitalize and reverse the last name of the game's author, without adding any extra characters in the middle.",
       isValid: isLastName,
     },
     {
